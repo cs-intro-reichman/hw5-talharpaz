@@ -42,6 +42,8 @@ public class MyString {
      * @return true is str1 is a subset of str2, false otherwise
      */
     public static boolean subsetOf(String str1, String str2) {
+        if (str1.length() == 0) return true;
+        
         if (str1.length() > str2.length()) {
             return false;
         }
@@ -77,7 +79,7 @@ public class MyString {
          
          for (int i = 0; i < str.length(); i++) {
             spaceString += str.charAt(i);
-            spaceString += toInsert;
+             if ( i != str.length() -1 )spaceString += toInsert;
              
          }
         return spaceString;
