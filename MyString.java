@@ -51,7 +51,7 @@ public class MyString {
         for (int i = 0; i<= str2.length() - str1.length(); i++){ 
             boolean isContains = true;
             for (int j = 0; j< str1.length() ; j++){
-            if( str1.charAt(i+j) != str2.charAt(j) ){
+            if( str2.charAt(i+j) != str1.charAt(j) ){
                 isContains = false;
                 break;
             }
@@ -132,7 +132,7 @@ public class MyString {
                } 
               
             }
-            if (found == false) {removeString += str1.charAt(i);
+            if (!found) {removeString += str1.charAt(i);
         }
            
        }
