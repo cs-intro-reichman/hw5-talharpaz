@@ -48,9 +48,16 @@ public class Scrabble {
 
 	// Checks if the given word is in the dictionary.
 	public static boolean isWordInDictionary(String word) {
-		//// Replace the following statement with your code
-		return false;
-	}
+		
+			for (int i = 0; i < NUM_OF_WORDS; i++) {
+				if (DICTIONARY[i].equals(word)) {
+					return true;
+				}
+			}
+			return false;
+		}
+		
+	
 	
 	// Returns the Scrabble score of the given word.
 	// If the length of the word equals the length of the hand, adds 50 points to the score.
@@ -73,23 +80,7 @@ public class Scrabble {
 		 }
 		 return score;
 	}
-	/*public static int wordScore(String word) {
-		 String wordL= word.toLowerCase();
-		 String list= "abcdefghijklmnopqrstuvwxyz";
-		 int score=0;
-		 for (int i=0; i<wordL.length(); i++){
-			 int letter= list.indexOf(wordL.charAt(i));
-			 score+= SCRABBLE_LETTER_VALUES[letter];
-		 }
-		 score*=wordL.length();
-		 if (wordL.length()==HAND_SIZE){
-			 score+= 50;
-		 }
-		 if (MyString.subsetOf("runi", wordL)){
-			 score+=1000;
-		 }
-		 return score;
-	 } */
+
 
 	// Creates a random hand of length (HAND_SIZE - 2) and then inserts
 	// into it, at random indexes, the letters 'a' and 'e'
@@ -120,8 +111,10 @@ public class Scrabble {
 			// non-whitespace characters. Whitespace is either space characters, or  
 			// end-of-line characters.
 			String input = in.readString();
-			//// Replace the following break statement with code
-			//// that completes the hand playing loop
+			score = wordScore(hand);
+			n =- input.length();
+			hand = MyString.remove(hand, input); 
+			
 			break;
 		}
 		if (hand.length() == 0) {
@@ -145,19 +138,25 @@ public class Scrabble {
 			// Gets the user's input, which is all the characters entered by 
 			// the user until the user enter the ENTER character.
 			String input = in.readString();
-			//// Replace the following break statement with code
-			//// that completes the game playing loop
-			break;
+			if ( input.equals("n") ) {
+				playHand(createHand());
+			} if ( input.equals("e")) break;
+			
+			else {
+				System.out.println("Please enter a valid input");
+				break;
+			}
+			
 		}
 	}
 
 	public static void main(String[] args) {
 		//// Uncomment the test you want to run
-		////testBuildingTheDictionary();  
-		////testScrabbleScore();    
+		///testBuildingTheDictionary();  
+		///testScrabbleScore();    
 		////testCreateHands();  
 		////testPlayHands();
-		////playGame();
+		playGame();
 	}
 
 	public static void testBuildingTheDictionary() {
