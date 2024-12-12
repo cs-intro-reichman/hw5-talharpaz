@@ -115,8 +115,9 @@ public class Scrabble {
 			if (input.equals(".")) { 
 				break;
 			}
-			if ( isWordInDictionary(input)){
-			score += wordScore(input);
+			if ( isWordInDictionary(input)&& MyString.subsetOf(input, hand)){
+			int wordScore = wordScore(input);
+			score += wordScore;
 			hand = MyString.remove(hand, input); 
 			
 			break;
