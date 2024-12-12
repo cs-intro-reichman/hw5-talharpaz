@@ -8,6 +8,8 @@ public class MyString {
         System.out.println(countChar(hello, 'l'));
         System.out.println(countChar(hello, 'z'));
         System.out.println(spacedString(hello));
+        ///System.out.println(remove("committee","meet"));
+
         //// Put your other tests here.
     }
 
@@ -125,7 +127,7 @@ public class MyString {
                  
        for (int i = 0; i < str2.length(); i++) {
         char c = str2.charAt(i);
-        int index = str1.indexOf(c);
+        int index = removeString.indexOf(c);
         if (index != -1) {
             removeString = removeString.substring(0, index) + removeString.substring( index + 1);
         }
