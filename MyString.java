@@ -48,22 +48,22 @@ public class MyString {
             return false;
         }
            
-        for (int i = 0; i<= str2.length() - str1.length(); i++){ 
-            boolean isContains = true;
-            for (int j = 0; j< str1.length() ; j++){
-            if( str2.charAt(i+j) != str1.charAt(j) ){
-                isContains = false;
-                break;
+        for (int i = 0; i< str1.length() ; i++){ 
+            char c = str1.charAt(i);
+            if ( str2.indexOf(c)== -1){
+             return false;
+
             }
-            
+            int countCInStr1 = countChar(str1, c);
+            int countCInStr2= countChar(str2, c);
+            if ( countCInStr1 > countCInStr2) return false;
             }
-            if (isContains) return true;
+         return true;
          }
          
             
-  
-        return false;
-    }
+
+    
 
     /** Returns a string which is the same as the given string, with a space
      * character inserted after each character in the given string, except
