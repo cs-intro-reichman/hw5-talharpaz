@@ -69,7 +69,7 @@ public class Scrabble {
 		 int score=0;
 		 for (int i=0; i<word.length(); i++){
 			 int letter= list.indexOf(word.charAt(i));
-			 score+= SCRABBLE_LETTER_VALUES[letter];
+			 if (letter != -1) score+= SCRABBLE_LETTER_VALUES[letter];
 		 }
 		 score*=word.length();
 		 if (word.length()==HAND_SIZE){
@@ -110,12 +110,19 @@ public class Scrabble {
 			// Reads the next "token" from the keyboard. A token is defined as a string of 
 			// non-whitespace characters. Whitespace is either space characters, or  
 			// end-of-line characters.
+			
 			String input = in.readString();
-			score = wordScore(input);
-			n =- input.length();
+			if (input.equals(".")) { 
+				break;
+			}
+			if ( isWordInDictionary(input)){
+			score += wordScore(input);
 			hand = MyString.remove(hand, input); 
 			
 			break;
+			} else {
+				System.out.println("Invalid word. Try again.");
+			}
 		}
 		if (hand.length() == 0) {
 	        System.out.println("Ran out of letters. Total score: " + score + " points");
