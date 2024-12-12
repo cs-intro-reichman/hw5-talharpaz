@@ -111,7 +111,7 @@ public class Scrabble {
 			// non-whitespace characters. Whitespace is either space characters, or  
 			// end-of-line characters.
 			String input = in.readString();
-			score = wordScore(hand);
+			score = wordScore(input);
 			n =- input.length();
 			hand = MyString.remove(hand, input); 
 			
@@ -155,8 +155,8 @@ public class Scrabble {
 		///testBuildingTheDictionary();  
 		///testScrabbleScore();    
 		////testCreateHands();  
-		////testPlayHands();
-		playGame();
+		///testPlayHands();
+		///playGame();
 	}
 
 	public static void testBuildingTheDictionary() {
@@ -184,6 +184,6 @@ public class Scrabble {
 		init();
 		//playHand("ocostrza");
 		//playHand("arbffip");
-		//playHand("aretiin");
+		 //playHand("aretiin");
 	}
 }
