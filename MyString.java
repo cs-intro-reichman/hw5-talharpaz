@@ -121,20 +121,14 @@ public class MyString {
      */
     public static String remove(String str1, String str2) {
        //// str1 -str2
-       String removeString = "";
+       String removeString = str1 ;
                  
-       for (int i = 0; i < str1.length(); i++) {
-        boolean found = false;
-        for (int j = 0; j < str2.length(); j++) {
-            if ( str1.charAt(i) == str2.charAt(j)) {
-                found = true;
-                 break;
-               } 
-              
-            }
-            if (!found) {removeString += str1.charAt(i);
+       for (int i = 0; i < str2.length(); i++) {
+        char c = str2.charAt(i);
+        int index = str1.indexOf(c);
+        if (index != -1) {
+            removeString = removeString.substring(0, index) + removeString.substring( index + 1);
         }
-           
        }
         
            return removeString;   
